@@ -9,7 +9,11 @@
 import UIKit
 
 class QuizTableViewController: UITableViewController {
+    //deklarasi tableData sebagai array
+    var cellFruits = [String]()
     
+    
+    //deklarasi tansportItem dengan array
     var fruits = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe"]
 
     override func viewDidLoad() {
@@ -31,23 +35,33 @@ class QuizTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fruits.count
     }
 
-    /*
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellFruits", for: indexPath)
 
-        // Configure the cell...
+        // menambakan transportItems
+        cell.textLabel?.text = fruits[indexPath.row]
+        
+        //menampilkan gambar
+        let imageName = UIImage(named: fruits[indexPath.row])
+        cell.imageView?.image = imageName
+        
+        //menampilkan text
+        
+        cell.textLabel?.text = fruits[indexPath.row]
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
